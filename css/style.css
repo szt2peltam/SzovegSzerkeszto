@@ -1,0 +1,97 @@
+@font-face {
+    font-family: Monocraft;
+    src: url(../JetBrainsMono-Regular.ttf);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+body{
+    font-family: Monocraft;
+    font-size:20px;
+    color: #06b0ff;
+}
+header{
+    width: 100vw;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    background-color: #1c1b1b;
+}
+
+.header-btn-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    height: 30px;
+}
+
+.btn{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #06b0ff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.open{
+    background-color: #06b0ff;
+    color: #1c1b1b;
+}
+
+main{
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 50px;
+}
+
+.page{
+    background-color: #1a1919;
+    margin-top: 10px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 70px;
+    padding-right: 70px;
+    min-width: 900px;
+    max-width: 900px;
+}
+
+footer{
+    height: 30px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    color: #1c1b1b;
+    background-color: #06b0ff;
+}
+.file-input{
+    display: none;
+}
+
+
+.word-count-wrapper{
+    padding-left: 10px;
+    
+}
+
+[contenteditable]:focus{
+    outline: 2px solid #06b0ff;
+}
+
+.btn:hover{
+    background-color: #2a2828;
+}
+
+.open:hover{
+    background-color: #008ccd;
+}
