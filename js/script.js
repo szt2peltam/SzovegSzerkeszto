@@ -12,10 +12,17 @@ fileInput.addEventListener("change",(e)=>{
         page.innerText = content
     }
     reader.readAsText(file);
+    
 })
 
 
-saveButton.addEventListener("click", (e) =>{
+
+saveButton.addEventListener("click", async (e) =>{
+    if(!fileInput.files[0]){
+        await ShowError("Fájl nem található!")
+        return
+    }
+    
     const blob = new Blob([page.innerText], {type:"text/plain"})
 
     const link = document.createElement('a');
@@ -35,3 +42,44 @@ page.addEventListener("keyup" ,(e) =>{
     wordcount.innerText = `${content.length} word, ${page.innerText.length} character`;
 
 })
+
+let IsErrorDisplayed = false;
+
+async function ShowError(msg){
+    if(IsErrorDisplayed) return
+    IsErrorDisplayed = true
+    document.body.insertAdjacentHTML("beforeend", `
+    <div class="error">
+        <h2>ERROR</h2>
+        <p>${msg}</p>
+        <div class="close-error-btn">
+            Bezárás
+        </div>
+        <div class="timer">5s</div>
+</div>`);
+
+    let errorelement = document.querySelector(".error");
+    let timer = document.querySelector(".timer")
+    let bezarasbtn = document.querySelector(".close-error-btn")
+    bezarasbtn.addEventListener("click",()=>{
+        errorelement.remove();
+
+    })
+    for (let index = 4; index > -1; index--) {
+        await wait(1000);
+        timer.innerText = `${index}s`
+
+        
+        
+    }
+    await wait(1000)
+    errorelement.remove();
+    IsErrorDisplayed = false;
+    console.log("EXECUTED");
+
+}
+
+
+function wait(ms) {
+    return new Promise((resolve, reject) => setTimeout(resolve, ms));
+  }

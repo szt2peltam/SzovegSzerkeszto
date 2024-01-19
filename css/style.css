@@ -95,3 +95,28 @@ footer{
 .open:hover{
     background-color: #008ccd;
 }
+.error{
+    color: #ae0606;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    height: 300px;
+    width: 500px;
+    background-color: #2a2828;
+    border: 3px solid #ae0606;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 10px;
+    
+}
+
+.close-error-btn{
+    background-color: #ae0606;
+    color: #2a2828;
+    padding: 5px;
+    cursor: pointer;
+}
